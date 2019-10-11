@@ -5,7 +5,7 @@
 #include <iostream>
 
 int main(int argc, char const *argv[]) {
-  int player_choice  = atoi(argv[2]);
+  int player_choice  = atoi(argv[1]);
 
   if (argc == 1 || argc > 2 || player_choice >  2) {
     std::cerr << "\n\nusage: tic_tac_toe " << " [<n>] <2 Player or Computer>" <<
@@ -13,6 +13,7 @@ int main(int argc, char const *argv[]) {
      std::endl;
          return 1;
   }
+  
   update();
   //set_player(player_choice);
 
