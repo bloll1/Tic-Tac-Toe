@@ -14,7 +14,7 @@ bool usedcheck(int input);
 void prompt(int player);
 void set_player(int player_choice);
 void draw_lines();
-void update();
+void update(int n);
 void draw_X(int x, int y);
 void draw_O(int x, int y);
 

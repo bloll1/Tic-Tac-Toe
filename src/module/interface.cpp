@@ -13,9 +13,14 @@ void set_player(int player_choice) {
   }
 }
 
-void update() {
+void update(int player) {
   system("clear");
   draw_lines();
+  if (player) {
+    prompt(0);
+  } else {
+    prompt(1);
+  }
 }
 
 
@@ -40,12 +45,14 @@ void prompt(int player) {
     std::cout << "Player 1's choice: " << '\n';
     square_choice = read();
     add_X(square_choice);
+    update(player);
   } else {
     std::cout << "Player 2's choice: " << '\n';
     square_choice = read();
     add_O(square_choice);
+    update(player);
   }
-update();
+
 
 }
 
@@ -93,19 +100,29 @@ bool playerX_sector(int sector) {
 
 void draw_lines() {
   std::cout << '\n';
-  //int sector;
-  for (int y = 1; y < 9; y++) {
-    for (int x = 0; x < 11; x++){
+  int sector = 1;
+  for (int y = 2; y < 11; y++) {
+    for (int x = 1; x < 12; x++){
 
-
-     if (x % 3 == 0 && x != 0 && x != 9) {
+      if (y % 3 == 0 && x % 2 == 0 && x % 4 != 0) {
+        if (player0_sector(sector)) {
+          std::cout << "O";
+          sector++;
+        } else if (playerX_sector(sector)) {
+          std::cout << "X";
+          sector++;
+        } else {
+          std::cout << " ";
+          sector++;
+        }
+      } else if (x % 4 == 0 && x != 0 && x != 12) {
         std::cout << "|";
-      } else if (y % 3 == 0 && y != 0 && y != 9 ) {
+      } else if (y % 4 == 0 && y != 0 && y != 12 ) {
         std::cout << "-";
       } else {
         std::cout << " ";
       }
-      if (x == 9) {
+      if (x == 11) {
         std::cout  << std::endl;
       }
     }
