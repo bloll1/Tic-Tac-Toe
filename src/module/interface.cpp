@@ -92,96 +92,23 @@ bool playerX_sector(int sector) {
 }
 
 void draw_lines() {
-  int sector = 1;
-  for (int y = 0; y < 60; y++) {
-    for (int x = 0; x < 60; x++) {
-
-      //sector 1 x check
-      if (x == y && x < 15 && y > 5 && playerX_sector(sector)){
-         std::cout << "\\";
-         if (x == 6) {
-           for (int temp = 0; temp < 8; temp++) {
-             std::cout << " ";
-           }
-           std::cout << "/";
-           x+= 9;
-
-        } else if (x == 7) {
-           for (int temp = 0; temp < 6; temp++) {
-             std::cout << " ";
-           }
-           std::cout << "/";
-           x+= 7;
-
-         } else if (x == 8) {
-           for (int temp = 0; temp < 4; temp++) {
-             std::cout << " ";
-           }
-           std::cout << "/";
-           x+= 5;
-
-         } else if (x == 9) {
-           for (int temp = 0; temp < 2; temp++) {
-             std::cout << " ";
-           }
-           x+= 3;
-           std::cout << "/";
-
-         } else if (x == 10) {
-           std::cout << "/";
-           x+= 1;
-         }
-      }
+  std::cout << '\n';
+  //int sector;
+  for (int y = 1; y < 9; y++) {
+    for (int x = 0; x < 11; x++){
 
 
-
-
-
-
-
-
-
-
-
-
-
-      else if (x == 10 && y == 2) {
-        std::cout << "1";
-      } else if (x == 30 && y == 2) {
-        std::cout << "2";
-      } else if (x == 50 && y == 2) {
-        std::cout << "3";
-      } else if (x == 10 && y == 22) {
-        std::cout << "4";
-      } else if (x == 30 && y == 22) {
-        std::cout << "5";
-      } else if (x == 50 && y == 22) {
-        std::cout << "6";
-      } else if (x == 10 && y == 42) {
-        std::cout << "7";
-      } else if (x == 30 && y == 42) {
-        std::cout << "8";
-      } else if (x == 50 && y == 42) {
-        std::cout << "9";
-      }
-
-      else if ((x == 20 && y > 1 && y < 59)
-      || (x == 40 &&  y > 1 && y < 59)) {
+     if (x % 3 == 0 && x != 0 && x != 9) {
         std::cout << "|";
+      } else if (y % 3 == 0 && y != 0 && y != 9 ) {
+        std::cout << "-";
       } else {
         std::cout << " ";
       }
-      if (x == 59) {
-        std::cout << std::endl;
-      }
-    }
-    if (y == 20 || y == 40) {
-      for (int h_print = 0; h_print < 60; h_print++) {
-        std::cout << "-";
-        if (h_print == 59) {
-          std::cout << std::endl;
-        }
+      if (x == 9) {
+        std::cout  << std::endl;
       }
     }
   }
+  std::cout << '\n';
 }
